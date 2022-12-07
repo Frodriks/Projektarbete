@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Calculator {
 	
-	boolean a = true;
+	//boolean a = true;
 	char operators;
 	Double firstNumber, secondNumber, answer;
 	
@@ -21,8 +21,9 @@ public class Calculator {
 				//input.close();
 				if(operators == '+' || operators == '-'  || operators == '*' || operators == '/'){
 					//return operators;
-					a = false;
-					break;
+					//a = false;
+					//break;
+					return;
 				}else {
 					System.out.println("Invalid operator");
 				}
@@ -42,10 +43,11 @@ public class Calculator {
 			System.out.println("Enter your first number");
 			firstNumber = input.nextDouble();
 			//input.close();
-			a = false;
-			break;
+			//a = false;
+			//break;
+			return;
 			} catch(InputMismatchException e) {
-				System.out.println("Något gick fel, prova skriv en siffra");
+				System.out.println("Something went wrong, try typing a number");
 			}
 		}
 	}
@@ -57,10 +59,11 @@ public class Calculator {
 			System.out.println("Enter your second number");
 			secondNumber = input.nextDouble();
 			//input.close();
-			a = false;
-			break;
+			//a = false;
+			//break;
+			return;
 			} catch(InputMismatchException e) {
-				System.out.println("Något gick fel, prova skriv en siffra");
+				System.out.println("Something went wrong, try typing a number");
 			}
 		}
 	}
