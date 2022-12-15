@@ -5,75 +5,58 @@ import java.util.Scanner;
 
 public class Calculator {
 	
-	//boolean a = true;
 	char operators;
 	Double firstNumber, secondNumber, answer;
 	
-	// Asks users to enter operator
+	// Asks user to enter operator
 	public void getOperators () {
 		while(true) {
-			try {
 				Scanner input = new Scanner (System.in); 
 				System.out.println("Choose an operator: + , - , * , /");
-				operators = input.next().charAt(0); 	//det är bara den första som är viktig. Funkar att skriva ex. +hflsdhfs4832, och då blir det +
-													//Hur gör jag för att den bara godkänner om det är en operator??
+				operators = input.next().charAt(0);
 			
-				//input.close();
 				if(operators == '+' || operators == '-'  || operators == '*' || operators == '/'){
-					//return operators;
-					//a = false;
-					//break;
 					return;
 				}else {
-					System.out.println("Invalid operator");
-				}
-			}catch (Exception e) {
-				System.out.println(e.getMessage());
-				System.out.println("*************");
-				e.printStackTrace();
-			}
-		
+					System.out.println("Something went wrong, try typing one of the operators");
+				}		
 		}
 	}
-	
+	// Asks user to enter a number.
 	public void getFirstNumber() {
 		while(true) {
 			try {
 			Scanner input = new Scanner (System.in); 
 			System.out.println("Enter your first number");
 			firstNumber = input.nextDouble();
-			//input.close();
-			//a = false;
-			//break;
 			return;
+			// If the user enters anything else than a number, it catches it and runs the block of code until it gets a correct input.
 			} catch(InputMismatchException e) {
 				System.out.println("Something went wrong, try typing a number");
 			}
 		}
 	}
-	
+	// Asks user to enter a number
 	public void getSecondNumber() {
 		while(true) {
 			try {
 			Scanner input = new Scanner (System.in); 
 			System.out.println("Enter your second number");
 			secondNumber = input.nextDouble();
-			//input.close();
-			//a = false;
-			//break;
 			return;
+			// If the user enters anything else than a number, it catches it and runs the block of code until it gets a correct input.
 			} catch(InputMismatchException e) {
 				System.out.println("Something went wrong, try typing a number");
 			}
 		}
 	}
 	
-	public void getAnswer() {  //operators, firstNumber, secondNumber
+	//Calculate the answer, depending on which operator the user chose.
+	public void getAnswer() {
 		System.out.println("Here's the awnser to your equation");
 		
 		try {
 			switch (operators) {
-		// performs addition between numbers
 				case '+':
 					answer = firstNumber + secondNumber;
 					System.out.println(firstNumber + " + " + secondNumber + " = " + answer);
@@ -91,7 +74,7 @@ public class Calculator {
 					System.out.println(firstNumber + " / " + secondNumber + " = " + answer);
 					break;	
 			}
-		} catch (Exception e) {
+		} catch (Exception e) { //Catches exceptions like: 0/0(NaN) or 10/0(Infinity)
 			System.out.println(e.getMessage());
 			System.out.println("*************");
 			e.printStackTrace();

@@ -7,7 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 
-		
+		//Calls the methods from the calculator class and runs it through a while(true)-loop
 		while(true) { 
 			Calculator operators = new Calculator();
 			operators.getOperators();
@@ -21,16 +21,13 @@ public class Main {
 			Calculator answer = new Calculator();
 			operators.getAnswer();
 			
-			Scanner input = new Scanner (System.in); //vill ha en funktion för att avsluta eller köra om koden
-			System.out.println("Press enter to run again or type 'esc' to exit.");
+			//Asks the user if they want to continue or exit the program
+			Scanner input = new Scanner (System.in);
+			System.out.println("Press enter or to run again or type 'esc' to exit"); // You can type something else as well to run the code again
 			String next = input.nextLine();
 			if (next.contains("esc")){
 				System.out.println("Closing calculator");
-				System.exit(0);
-				//break;
-			//}else {
-				//continue;
-				
+				System.exit(0);		
 			}
 			}
 	
